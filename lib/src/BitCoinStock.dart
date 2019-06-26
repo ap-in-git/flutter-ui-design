@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'side_drawer.dart';
 class BitCoinStockProfile extends StatefulWidget {
   @override
   _BitCoinStockProfileState createState() => _BitCoinStockProfileState();
@@ -8,10 +8,13 @@ class BitCoinStockProfile extends StatefulWidget {
 
 class _BitCoinStockProfileState extends State<BitCoinStockProfile> {
   final Color backgroundColor = Color(0xff4c65bd);
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: SideDrawer(),
       appBar: AppBar(
         elevation: 0.0,
         leading: IconButton(
@@ -19,7 +22,9 @@ class _BitCoinStockProfileState extends State<BitCoinStockProfile> {
               Icons.dehaze,
               color: Colors.white,
             ),
-            onPressed: null),
+            onPressed: (){
+              _scaffoldKey.currentState.openDrawer();
+            }),
         title: Text('Total balance'),
         backgroundColor: backgroundColor,
         centerTitle: true,

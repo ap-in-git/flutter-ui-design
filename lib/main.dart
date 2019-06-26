@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'src/BitCoinStock.dart';
-
+import 'src/CryptoCurrencyProfile.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:BitCoinStockProfile(),
+      routes: <String,WidgetBuilder> {
+        "/crypto-currency-profile" :(BuildContext context)=>CryptoCurrencyProfile(),
+        "/bitcoin-stock-profile" :(BuildContext context)=>BitCoinStockProfile()
+      } ,
     );
   }
 }
